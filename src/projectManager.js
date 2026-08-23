@@ -3,3 +3,7 @@
 // functions such as addProject, removeProject, setActiveProject, deleteProject
 import Project from './project.js';
 import toDoItem from './todo.js';
+
+const projects = [];
+let activeProjectId = null;
+
