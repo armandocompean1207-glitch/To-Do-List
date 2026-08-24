@@ -1,0 +1,237 @@
+/* ---------- reset & base ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    display: flex;
+    min-height: 100vh;
+    background-color: #fdf6f0;
+    color: #4a4a4a;
+}
+
+/* ---------- sidebar ---------- */
+.left-sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    background-color: #f6e6ff;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border-right: 2px solid #e6d0f7;
+}
+
+.left-sidebar h3 {
+    color: #7a5c94;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+#theme-toggle {
+    align-self: flex-start;
+    background: none;
+    border: 1px solid #d9bce8;
+    border-radius: 20px;
+    padding: 0.25rem 0.75rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+#sidebar-projects {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+#sidebar-projects li {
+    padding: 0.5rem 0.75rem;
+    border-radius: 10px;
+    background-color: #ffffffaa;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+#sidebar-projects li:hover {
+    background-color: #eddcfb;
+}
+
+#sidebar-projects li.active {
+    background-color: #d8b4f0;
+    color: #3f2a52;
+    font-weight: 600;
+}
+
+#project-item {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #d9bce8;
+    font-size: 0.9rem;
+}
+
+#add-project {
+    background-color: #c9a4e8;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.15s ease;
+}
+
+#add-project:hover {
+    background-color: #b98adf;
+}
+
+/* ---------- main content ---------- */
+.content {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+#new-task {
+    align-self: flex-start;
+    background-color: #a8d8c9;
+    color: #1f4d3d;
+    border: none;
+    border-radius: 10px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+#new-task:hover {
+    background-color: #8fcab8;
+}
+
+#todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+/* ---------- todo cards ---------- */
+.todo-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    cursor: pointer;
+    border-left: 6px solid #cfcfcf;
+    transition: transform 0.1s ease;
+}
+
+.todo-card:hover {
+    transform: translateY(-1px);
+}
+
+.todo-card.priority-high {
+    border-left-color: #f4a3a3;
+}
+
+.todo-card.priority-medium {
+    border-left-color: #f6d68a;
+}
+
+.todo-card.priority-low {
+    border-left-color: #a8d8c9;
+}
+
+.todo-title {
+    font-weight: 600;
+    color: #4a4a4a;
+}
+
+.todo-due {
+    font-size: 0.85rem;
+    color: #9a9a9a;
+}
+
+/* ---------- dialogs ---------- */
+dialog {
+    border: none;
+    border-radius: 16px;
+    padding: 1.5rem;
+    width: min(90vw, 420px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    background-color: #fffaf5;
+}
+
+dialog::backdrop {
+    background-color: rgba(74, 74, 74, 0.35);
+}
+
+dialog input,
+dialog textarea,
+dialog select {
+    width: 100%;
+    padding: 0.6rem;
+    margin-bottom: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #e0d4ea;
+    font-size: 0.9rem;
+    font-family: inherit;
+}
+
+dialog textarea {
+    resize: vertical;
+    min-height: 70px;
+}
+
+dialog h2 {
+    color: #7a5c94;
+    margin-bottom: 0.5rem;
+}
+
+dialog p {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+dialog button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-right: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+#task-save-btn {
+    background-color: #a8d8c9;
+    color: #1f4d3d;
+}
+
+#task-cancel-btn,
+#detail-close-btn {
+    background-color: #eeeeee;
+    color: #555555;
+}
+
+#detail-delete-btn {
+    background-color: #f4a3a3;
+    color: #6b1f1f;
+}
+
+/* ---------- footer ---------- */
+h5 {
+    margin-top: auto;
+    font-size: 0.8rem;
+    color: #b0a8a0;
+    text-align: center;
+}
