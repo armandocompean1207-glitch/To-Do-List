@@ -19,9 +19,11 @@ class Project {
             return null;
         }
 
-        // remove by title
+        // remove by ID or title
         if (typeof todoOrIndex === 'string') {
-            const idx = this.todos.findIndex(t => t.title === todoOrIndex);
+            const idx = this.todos.findIndex(t =>
+                t.id === todoOrIndex || t.title === todoOrIndex
+            );
             if (idx > -1) return this.todos.splice(idx, 1)[0];
             return null;
         }

@@ -26,7 +26,7 @@ function loadFromStorage() {
                 todoData.priority,
                 todoData.completed
             );
-            newTodo.id = todoData.id;
+            newTodo.id = todoData.id || newTodo.id;
             return newTodo;
         });
 

@@ -4,6 +4,7 @@ import {
     setActiveProject,
     addProject,
     addToDoToActiveProject,
+    removeTodoFromActiveProjects,
     removeProject
 } from '../src/projectManager.js';
 import { saveToStorage } from '../src/storage.js';
@@ -26,6 +27,7 @@ function initApp() {
     setupNewTaskButton();
     setupTodoCardClicks();
     setupDialogButtons();
+    deleteProject();
 }
 
 function setupSidebarClicks() {
@@ -106,11 +108,25 @@ function setupDialogButtons() {
     });
 
     document.querySelector('#detail-delete-btn').addEventListener('click', () => {
-        const activeProject = getActiveProject();
-        activeProject.removeToDo(dialog.dataset.todoId);
+        removeTodoFromActiveProjects(dialog.dataset.todoId);
         saveToStorage();
         refreshUI();
         dialog.close();
+    });
+}
+
+function deleteProject() {
+    const deletebtn = document.querySelector('#delete-project');
+    if (!deletebtn) return;
+
+    deletebtn.addEventListener('click', () => {
+
+        if (getActiveProjectId()) {
+            console.log('The Project to be deleted', getActiveProject());
+            removeProject(getActiveProjectId());
+            saveToStorage();
+            refreshUI();
+        }
     });
 }
 

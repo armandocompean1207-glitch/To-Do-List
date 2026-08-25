@@ -35,6 +35,10 @@ function addProject(name) {
 }
 
 function removeProject(projectId) {
+    //debug code
+    console.log('trying to remove:', projectId, typeof projectId);
+    console.log('current projects:', projects.map(p => p.id));
+    //
     const index = projects.findIndex(p => p.id === projectId);
 
     if (index === -1) {
@@ -61,7 +65,16 @@ function setActiveProject(projectId) {
 function addToDoToActiveProject(todo) {
     const activeProject = projects.find(p => p.id === activeProjectId);
     if (activeProject) {
-        activeProject.addToDo(todo);
+        const todoItem = todo instanceof ToDoItem
+            ? todo
+            : new ToDoItem(
+                todo.title,
+                todo.description,
+                todo.dueDate,
+                todo.priority,
+                todo.completed
+            );
+        activeProject.addToDo(todoItem);
     }
     else {
         console.error("No active Project found. Cannot add ToDo.");
@@ -81,6 +94,16 @@ function loadProjects(rebuiltProjectsArray){
     projects.push(...rebuiltProjectsArray);
 }
 
+function removeTodoFromActiveProjects(todoId) {
+    const activeProject = projects.find(p => p.id === activeProjectId);
+    if (activeProject) {
+        activeProject.removeToDo(todoId);
+    }
+
+    else {
+        console.error("No active projects found cannot remove todo.");
+    }
+}
 export {
     initializeProjects,
     addProject,
@@ -89,5 +112,6 @@ export {
     addToDoToActiveProject,
     getProjects,
     getActiveProjectId,
-    loadProjects
+    loadProjects,
+    removeTodoFromActiveProjects
 };

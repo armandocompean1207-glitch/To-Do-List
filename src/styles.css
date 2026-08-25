@@ -17,16 +17,16 @@ body {
 .left-sidebar {
     width: 260px;
     flex-shrink: 0;
-    background-color: #f6e6ff;
+    background-color: #e4f1fb;
     padding: 1.5rem 1rem;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    border-right: 2px solid #e6d0f7;
+    border-right: 2px solid #c4ddec;
 }
 
 .left-sidebar h3 {
-    color: #7a5c94;
+    color: #41657d;
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
 }
@@ -34,7 +34,7 @@ body {
 #theme-toggle {
     align-self: flex-start;
     background: none;
-    border: 1px solid #d9bce8;
+    border: 1px solid #bdd7e8;
     border-radius: 20px;
     padding: 0.25rem 0.75rem;
     cursor: pointer;
@@ -58,19 +58,19 @@ body {
 }
 
 #sidebar-projects li:hover {
-    background-color: #eddcfb;
+    background-color: #d5eaf6;
 }
 
 #sidebar-projects li.active {
-    background-color: #d8b4f0;
-    color: #3f2a52;
+    background-color: #b9d9eb;
+    color: #294c63;
     font-weight: 600;
 }
 
 #project-item {
     padding: 0.5rem;
     border-radius: 8px;
-    border: 1px solid #d9bce8;
+    border: 1px solid #bdd7e8;
     font-size: 0.9rem;
 }
 
@@ -96,6 +96,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    position: relative;
 }
 
 #new-task {
@@ -113,6 +114,25 @@ body {
 
 #new-task:hover {
     background-color: #8fcab8;
+}
+
+#delete-project {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background-color: #f4b6b6;
+    color: #6b2626;
+    border: none;
+    border-radius: 10px;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+#delete-project:hover {
+    background-color: #ed9d9d;
 }
 
 #todo-list {
@@ -163,10 +183,16 @@ body {
 
 /* ---------- dialogs ---------- */
 dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border: none;
     border-radius: 16px;
     padding: 1.5rem;
     width: min(90vw, 420px);
+    max-height: 90vh;
+    overflow: auto;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     background-color: #fffaf5;
 }
