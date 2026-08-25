@@ -1,12 +1,14 @@
 {
-  "name": "to-do-list",
+  "name": "To-Do-list",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://armandocompean1207-glitch.github.io/to-do-list",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --config webpack.config.cjs",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --mode development"
+    "start": "webpack serve --mode development --config webpack.config.cjs",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +23,7 @@
     "webpack-dev-server": "^6.0.0"
   },
   "dependencies": {
-    "date-fns": "^4.4.0"
+    "date-fns": "^4.4.0",
+    "gh-pages": "^6.3.0"
   }
 }
