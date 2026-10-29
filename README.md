@@ -66,6 +66,20 @@ dom/
 
 Projects are stored in the browser's `localStorage` under the `projects` key. Clearing site data removes the saved projects and restores the initial example projects on the next load.
 
+## Future Improvements
+
+Planned enhancements for the app include:
+
+- Add the ability to edit existing projects and todo items
+- Support drag-and-drop reordering for tasks within a project
+- Add filtering and sorting by priority, due date, and completion status
+- Include task completion toggling and progress tracking
+- Add reminders or notifications for upcoming due dates
+- Improve accessibility with keyboard navigation and screen-reader support
+- Add a dark mode and more customization options for the interface
+- Introduce automated tests and CI checks for safer future updates
+- Explore optional cloud sync or backend storage for multi-device access
+
 ## Testing
 
 No automated test suite is configured yet. The available validation command is:
